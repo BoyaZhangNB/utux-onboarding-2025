@@ -11,11 +11,14 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
 add_executable(sonar_pub src/sonar_publisher.cpp)
-
 ament_target_dependencies(sonar_pub rclcpp std_msgs)
+
+add_executable(sonar_sub src/sonar_subscriber.cpp)
+ament_target_dependencies(sonar_sub rclcpp std_msgs)
 
 install(TARGETS
   sonar_pub
+  sonar_sub
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
