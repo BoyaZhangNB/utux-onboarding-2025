@@ -25,8 +25,8 @@ class Sonar_Subscriber: public rclcpp::Node {
                 RCLCPP_INFO(this->get_logger(), "Sensor timed out");
             }
 
-            float front = msg->data[0] / 1.481; // [m]
-            float bottom = msg->data[1] / 1.481; // [m]
+            float front = msg->data[0] / 1.481 / 2; // [m] # divide by two since time is there and back
+            float bottom = msg->data[1] / 1.481 / 2; // [m]
             //RCLCPP_INFO(this->get_logger(), "front: %f m, bottom: %f m]", front, bottom);
 
             prev_front.push_back(front);
